@@ -61,7 +61,6 @@ def analise_exploratoria(df):
     plot_grafico_de_barras(df)
     plot_grafico_de_pizza(df)
     plot_grafico_de_linha(df)
-    plot_grafico_de_dispersao(df)
     plot_boxplot(df)
     plot_grafico_3d(df)
     plot_grafico_interativo(df)
@@ -120,20 +119,6 @@ def plot_grafico_de_linha(df):
         plt.show()
     else:
         print("Não há duas variáveis numéricas para plotar o gráfico de linha.")
-
-def plot_grafico_de_dispersao(df):
-    print("\nGráfico de Dispersão:")
-    numeric_columns = df.select_dtypes(include=['float64', 'int64']).columns
-    if len(numeric_columns) > 1:
-        cols = random.sample(list(numeric_columns), 2)
-        print(f"Plotando gráfico de dispersão para as colunas: {cols[0]} e {cols[1]}")
-        sns.scatterplot(data=df, x=cols[0], y=cols[1])
-        plt.title(f'Gráfico de Dispersão entre {cols[0]} e {cols[1]}')
-        plt.xlabel(cols[0])
-        plt.ylabel(cols[1])
-        plt.show()
-    else:
-        print("Não há duas variáveis numéricas para plotar o gráfico de dispersão.")
 
 def plot_boxplot(df):
     print("\nBoxplot:")
